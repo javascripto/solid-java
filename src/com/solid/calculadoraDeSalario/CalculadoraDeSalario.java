@@ -1,6 +1,4 @@
-package com.solid;
-
-import static com.solid.Cargo.*;
+package com.solid.calculadoraDeSalario;
 
 public class CalculadoraDeSalario {
 

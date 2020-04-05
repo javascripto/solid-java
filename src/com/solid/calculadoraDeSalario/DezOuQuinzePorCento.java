@@ -1,4 +1,4 @@
-package com.solid;
+package com.solid.calculadoraDeSalario;
 
 public class DezOuQuinzePorCento implements RegraDeCalculo {
     public double calcular(Funcionario funcionario) {

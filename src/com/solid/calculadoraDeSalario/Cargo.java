@@ -1,4 +1,4 @@
-package com.solid;
+package com.solid.calculadoraDeSalario;
 
 public enum Cargo {
     DBA(new QuinzeOuVinteECincoPorCento()),

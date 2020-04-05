@@ -1,4 +1,4 @@
-package com.solid;
+package com.solid.calculadoraDeSalario;
 
 import java.util.Calendar;
 
