@@ -5,9 +5,6 @@ import static com.solid.Cargo.*;
 public class CalculadoraDeSalario {
 
     public double calcula(Funcionario funcionario) {
-        return funcionario
-                .getCargo()
-                .getRegraDeCalculo()
-                .calcular(funcionario);
+        return funcionario.calcularSalario();
     }
 }
