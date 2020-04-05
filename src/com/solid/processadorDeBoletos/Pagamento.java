@@ -8,4 +8,8 @@ public class Pagamento {
         this.valor = valor;
         this.meioPagamento = meioPagamento;
     }
+
+    public double getValor() {
+        return valor;
+    }
 }

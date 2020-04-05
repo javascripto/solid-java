@@ -1,33 +1,39 @@
 package com.solid.processadorDeBoletos;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Fatura {
     private boolean pago;
     private double valor;
-    private List<Pagamento> pagamentos;
+    private String cliente;
+    private List<Pagamento> pagamentos = new ArrayList<>();
+
+    public Fatura(String cliente, double valor) {
+        this.valor = valor;
+        this.cliente = cliente;
+    }
 
     public boolean isPago() {
         return pago;
     }
-
-    public void setPago(boolean pago) {
-        this.pago = pago;
-    }
-
     public List<Pagamento> getPagamentos() {
-        return pagamentos;
+        return Collections.unmodifiableList(pagamentos);
     }
-
-    public void setPagamentos(List<Pagamento> pagamentos) {
-        this.pagamentos = pagamentos;
-    }
-
     public double getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void adicionarPagamento(Pagamento pagamento) {
+        pagamentos.add(pagamento);
+        if (valorTotaldosPagamentos() >= valor)
+            pago = true;
+    }
+
+    private double valorTotaldosPagamentos() {
+        return pagamentos.stream()
+            .map(Pagamento::getValor)
+            .reduce(0.0, Double::sum);
     }
 }
