@@ -1,7 +1,7 @@
-package com.solid.aula5;
+package com.solid.ProcessadorDeInvestimentos;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class ProcessadorDeInvestimentos {
 
@@ -17,7 +17,6 @@ public class ProcessadorDeInvestimentos {
         contas.add(new ContaComum(300));
         contas.add(new ContaComum(400));
         contas.add(new ContaComum(500));
-//        contas.add(new ContaEstudante());
         contas.add(new ContaComum());
         return contas;
     }

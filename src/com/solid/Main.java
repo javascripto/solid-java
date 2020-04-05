@@ -7,5 +7,6 @@ public class Main {
 //        GeradorDeNotaFiscal.main(args);
 //        CalculadoraDePreco.main(args);
 //        ProcessadorDeBoletos.main(args);
+//        ProcessadorDeInvestimentos.main(args);
     }
 }

@@ -1,15 +1,8 @@
-package com.solid.aula5;
+package com.solid.ProcessadorDeInvestimentos;
 
-public class ContaComum {
-    protected double saldo;
+public class ManipuladorDeSaldo {
 
-    public ContaComum() {
-        this.saldo = 0;
-    }
-
-    public ContaComum(double saldoAbertura) {
-        saldo = saldoAbertura;
-    }
+    private double saldo;
 
     public void depositar(double valor) {
         this.saldo += valor;
@@ -25,7 +18,7 @@ public class ContaComum {
         return saldo;
     }
 
-    public void render() {
-        this.saldo *= 1.1;
+    public void render(double taxa) {
+        this.saldo *= taxa;
     }
 }
