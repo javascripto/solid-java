@@ -19,4 +19,8 @@ public class Main {
 
         System.out.println(calculadoraDeSalario.calcula(funcionario));
     }
+
+    private static void geradorDeNotaFiscal() {
+
+    }
 }
