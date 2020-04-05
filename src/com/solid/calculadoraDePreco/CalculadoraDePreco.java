@@ -16,4 +16,15 @@ public class CalculadoraDePreco {
 
         return produto.getValor() * (1 - desconto) + frete;
     }
+
+    public static void main(String[] args) {
+        // TabelaDePreco tabela = new TabelaDePrecoPadrao();
+        TabelaDePreco tabela = new TabelaDePrecoSemDesconto();
+        ServiceDeEntrega entrega = new Frete();
+
+        Compra produto = new Compra(1500, "SAO PAULO");
+
+        CalculadoraDePreco calculadora = new CalculadoraDePreco(tabela, entrega);
+        System.out.println(calculadora.calcular(produto));
+    }
 }
