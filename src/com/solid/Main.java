@@ -1,5 +1,7 @@
 package com.solid;
 
+import com.solid.calculadoraDePreco.CalculadoraDePreco;
+import com.solid.calculadoraDePreco.Compra;
 import com.solid.calculadoraDeSalario.Cargo;
 import com.solid.calculadoraDeSalario.Funcionario;
 import com.solid.calculadoraDeSalario.CalculadoraDeSalario;
@@ -12,7 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         // Main.calculadoraDeSalario();
-        Main.geradorDeNotaFiscal();
+        // Main.geradorDeNotaFiscal();
+         Main.calculadoraDePreco();
     }
 
     private static void calculadoraDeSalario() {
@@ -34,5 +37,12 @@ public class Main {
         GeradorDeNotaFiscal geradorNF = new GeradorDeNotaFiscal(acoesAposGerarNota);
 
         geradorNF.gerar(fatura);
+    }
+
+    private static void calculadoraDePreco() {
+        CalculadoraDePreco calculadora = new CalculadoraDePreco();
+        Compra produto = new Compra();
+        produto.setCidade("SAO PAULO");
+        System.out.println(calculadora.calcular(produto));
     }
 }
