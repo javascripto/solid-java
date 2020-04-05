@@ -1,7 +1,6 @@
 package com.solid;
 
-import com.solid.calculadoraDePreco.CalculadoraDePreco;
-import com.solid.calculadoraDePreco.Compra;
+import com.solid.calculadoraDePreco.*;
 import com.solid.calculadoraDeSalario.Cargo;
 import com.solid.calculadoraDeSalario.Funcionario;
 import com.solid.calculadoraDeSalario.CalculadoraDeSalario;
@@ -40,9 +39,13 @@ public class Main {
     }
 
     private static void calculadoraDePreco() {
-        CalculadoraDePreco calculadora = new CalculadoraDePreco();
-        Compra produto = new Compra();
-        produto.setCidade("SAO PAULO");
+        // TabelaDePreco tabela = new TabelaDePrecoPadrao();
+        TabelaDePreco tabela = new TabelaDePrecoSemDesconto();
+        ServiceDeEntrega entrega = new Frete();
+
+        Compra produto = new Compra(1500, "SAO PAULO");
+
+        CalculadoraDePreco calculadora = new CalculadoraDePreco(tabela, entrega);
         System.out.println(calculadora.calcular(produto));
     }
 }
