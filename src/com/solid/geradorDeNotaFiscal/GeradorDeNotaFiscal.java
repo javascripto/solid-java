@@ -1,19 +1,22 @@
 package com.solid.geradorDeNotaFiscal;
 
-public class GeradorDeNotaFiscal {
-    private final EnviadorDeEmail email;
-    private final NotaFiscalDAO dao;
+import java.util.List;
 
-    public GeradorDeNotaFiscal(EnviadorDeEmail email, NotaFiscalDAO dao) {
-        this.email = email;
-        this.dao = dao;
+public class GeradorDeNotaFiscal {
+    private final List<AcaoAposGerarNota> acoesAposGerarNota;
+
+    public GeradorDeNotaFiscal(List<AcaoAposGerarNota> acoes) {
+        this.acoesAposGerarNota = acoes;
     }
 
     public NotaFiscal gerar(Fatura fatura) {
         double valor = fatura.getValorMensal();
         NotaFiscal nf = new NotaFiscal(valor, impostoSimplesSobreO(valor));
-        email.enviarEmail(nf);
-        dao.persistir(nf);
+
+        for (AcaoAposGerarNota acao: acoesAposGerarNota) {
+            acao.executar(nf);
+        }
+
         return nf;
     }
 
